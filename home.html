@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizWave — Home</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="home-body">
+  <header class="topbar">
+    <div class="brand-inline">
+      <span class="brand-icon">🧠</span>
+      <span class="brand-name">QuizWave</span>
+    </div>
+    <nav class="topbar-nav">
+      <span id="welcome-user" class="welcome-user"></span>
+      <a href="index.html" class="signout-link" id="signout-link">Sign out</a>
+    </nav>
+  </header>
+
+  <main class="home-main">
+    <section class="hero">
+      <h1>Pick your battleground.</h1>
+      <p>Two arenas. One brain. Prove it.</p>
+    </section>
+
+    <section class="quiz-grid">
+      <a href="quiz.html?topic=siege" class="quiz-card siege">
+        <div class="quiz-emoji">🔫</div>
+        <h2>Rainbow Six Siege</h2>
+        <p>Operators, maps, gadgets, and esports moments from Ubisoft's tactical shooter.</p>
+        <span class="quiz-meta">10 questions · Medium</span>
+      </a>
+
+      <a href="quiz.html?topic=baseball" class="quiz-card baseball">
+        <div class="quiz-emoji">⚾</div>
+        <h2>Baseball</h2>
+        <p>Legends, records, rules, and World Series history from America's pastime.</p>
+        <span class="quiz-meta">10 questions · Medium</span>
+      </a>
+    </section>
+
+    <section class="scoreboard-section">
+      <h2>📈 Your recent scores</h2>
+      <div id="scoreboard" class="scoreboard">
+        <p class="no-scores" id="no-scores">No scores yet — play a quiz to get on the board!</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/home.js"></script>
+</body>
+</html>
