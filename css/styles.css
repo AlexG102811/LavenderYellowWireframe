@@ -1,4 +1,4 @@
-/* ===== QuizWave — Sign In ===== */
+/* ===== QuizWave — Global styles ===== */
 :root {
   --lavender: #b190e8;
   --lavender-dark: #7c5cc4;
@@ -8,6 +8,7 @@
   --text: #2b2540;
   --muted: #7a7390;
   --error: #d64550;
+  --green: #2f9e63;
   --radius: 14px;
 }
 
@@ -20,6 +21,9 @@ body {
   min-height: 100vh;
 }
 
+a { color: var(--lavender-dark); }
+
+/* ===== Sign-in card ===== */
 .auth-container {
   display: flex;
   align-items: center;
@@ -63,7 +67,7 @@ body {
 }
 .tab.active { background: var(--lavender); color: #fff; }
 
-/* Form */
+/* Auth form */
 .auth-form label {
   display: block;
   font-size: 0.85rem;
@@ -122,6 +126,24 @@ body {
 .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(124, 92, 196, 0.35); }
 .btn-primary:active { transform: translateY(0); }
 
+.btn-secondary {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border: 1.5px solid var(--lavender);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--lavender-dark);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-secondary:hover { background: #f5f2fd; }
+
 .guest-hint {
   margin-top: 20px;
   text-align: center;
@@ -130,3 +152,161 @@ body {
 }
 .guest-hint a { color: var(--lavender-dark); font-weight: 600; text-decoration: none; }
 .guest-hint a:hover { text-decoration: underline; }
+
+/* ===== Topbar (shared) ===== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  background: var(--card);
+  box-shadow: 0 2px 12px rgba(124, 92, 196, 0.12);
+}
+.brand-inline { display: flex; align-items: center; gap: 8px; }
+.brand-inline .brand-icon { font-size: 1.5rem; }
+.brand-name { font-weight: 800; font-size: 1.15rem; color: var(--lavender-dark); }
+.topbar-nav { display: flex; align-items: center; gap: 18px; }
+.welcome-user { font-weight: 600; color: var(--text); }
+.signout-link, .back-link { text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.signout-link:hover, .back-link:hover { text-decoration: underline; }
+
+/* ===== Home ===== */
+.home-main { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+.hero { text-align: center; margin-bottom: 36px; }
+.hero h1 { font-size: 2rem; color: var(--text); }
+.hero p { color: var(--muted); margin-top: 8px; }
+
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 44px;
+}
+
+.quiz-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 28px rgba(124, 92, 196, 0.15);
+  padding: 30px 26px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 5px solid var(--lavender);
+}
+.quiz-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(124, 92, 196, 0.28); }
+.quiz-card.baseball { border-top-color: var(--yellow); }
+.quiz-emoji { font-size: 2.4rem; }
+.quiz-card h2 { font-size: 1.25rem; }
+.quiz-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; flex: 1; }
+.quiz-meta {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--lavender-dark);
+  background: #f5f2fd;
+  align-self: flex-start;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* Scoreboard */
+.scoreboard-section h2 { margin-bottom: 16px; }
+.scoreboard {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(124, 92, 196, 0.12);
+  padding: 10px 24px;
+}
+.score-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee9f8;
+  font-size: 0.92rem;
+}
+.score-item:last-child { border-bottom: none; }
+.score-topic { font-weight: 700; }
+.score-value { color: var(--lavender-dark); font-weight: 700; }
+.score-date { color: var(--muted); font-size: 0.8rem; }
+.no-scores { color: var(--muted); padding: 18px 0; text-align: center; }
+
+/* ===== Quiz play ===== */
+.quiz-main { max-width: 640px; margin: 0 auto; padding: 36px 24px 60px; }
+
+.quiz-header h1 { font-size: 1.5rem; color: var(--lavender-dark); }
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.progress-track {
+  height: 10px;
+  background: #e9e3f8;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--lavender), var(--yellow));
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.quiz-card-play, .results-card {
+  margin-top: 26px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 28px rgba(124, 92, 196, 0.15);
+  padding: 32px 28px;
+}
+
+.question-text { font-size: 1.2rem; line-height: 1.5; margin-bottom: 22px; }
+
+.answers { display: grid; gap: 12px; }
+.answer-btn {
+  padding: 14px 16px;
+  border: 1.5px solid #e3dcf3;
+  border-radius: 10px;
+  background: #faf8ff;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.answer-btn:hover { border-color: var(--lavender); background: #f5f2fd; }
+.answer-btn.correct { border-color: var(--green); background: #e8f7ef; font-weight: 700; }
+.answer-btn.wrong { border-color: var(--error); background: #fdeef0; }
+
+.feedback {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.feedback.correct { background: #e8f7ef; color: #20714a; }
+.feedback.wrong { background: #fdeef0; color: var(--error); }
+
+/* Results */
+.results-card { text-align: center; }
+.results-emoji { font-size: 3rem; margin-bottom: 10px; }
+.results-score { font-size: 1.5rem; font-weight: 800; color: var(--lavender-dark); margin: 10px 0 6px; }
+.results-message { color: var(--muted); margin-bottom: 24px; }
+.results-actions .btn-primary { max-width: 260px; }
+.results-actions .btn-secondary { max-width: 260px; }
+
+/* Responsive */
+@media (max-width: 560px) {
+  .topbar { padding: 14px 18px; }
+  .quiz-main, .home-main { padding: 24px 16px 50px; }
+  .auth-card { padding: 32px 22px; }
+}

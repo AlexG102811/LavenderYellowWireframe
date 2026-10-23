@@ -1,6 +1,6 @@
 /* ===== QuizWave — Demo auth (localStorage) =====
- * Phase 1: front-end only. Users are stored in localStorage.
- * NOTE: demo purposes only — never store real passwords like this.
+ * Front-end only. Users stored in localStorage for demo purposes.
+ * NOTE: never store real passwords like this in production.
  */
 (function () {
   'use strict';
@@ -22,6 +22,10 @@
   function saveUsers(users) { localStorage.setItem(USERS_KEY, JSON.stringify(users)); }
   function showError(el, msg) { el.textContent = msg; el.hidden = false; }
   function hideError(el) { el.textContent = ''; el.hidden = true; }
+  function setSession(session) {
+    localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+    if (!session.remember) sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+  }
 
   function switchTab(tab) {
     var isSignin = tab === tabSignin;
@@ -55,10 +59,9 @@
 
     users[username] = { password: password, createdAt: new Date().toISOString() };
     saveUsers(users);
-    alert('Account created! You can sign in now.');
-    switchTab(tabSignin);
-    document.getElementById('signin-username').value = username;
+    setSession({ username: username, remember: true, signedInAt: new Date().toISOString() });
     signupForm.reset();
+    window.location.href = 'home.html';
   });
 
   // Sign in
@@ -72,20 +75,20 @@
     if (!users[username]) return showError(signinError, 'No account found with that username.');
     if (users[username].password !== password) return showError(signinError, 'Incorrect password. Try again.');
 
-    var remember = document.getElementById('remember-me').checked;
-    var session = { username: username, remember: remember, signedInAt: new Date().toISOString() };
-    localStorage.setItem(SESSION_KEY, JSON.stringify(session));
-    if (!remember) sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
-
-    // Phase 1: placeholder destination
-    alert('Welcome back, ' + username + '! (Quiz home coming in Phase 2)');
+    setSession({
+      username: username,
+      remember: document.getElementById('remember-me').checked,
+      signedInAt: new Date().toISOString()
+    });
     signinForm.reset();
+    window.location.href = 'home.html';
   });
 
+  // Guest mode
   document.getElementById('guest-link').addEventListener('click', function (e) {
     e.preventDefault();
-    localStorage.setItem(SESSION_KEY, JSON.stringify({ username: 'guest', guest: true }));
-    alert('Playing as guest! (Quiz home coming in Phase 2)');
+    setSession({ username: 'guest', guest: true });
+    window.location.href = 'home.html';
   });
 
   document.getElementById('forgot-link').addEventListener('click', function (e) {
