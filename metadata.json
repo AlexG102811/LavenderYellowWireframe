@@ -1,0 +1,7 @@
+{
+  "name": "QuizWave",
+  "description": "Test your knowledge. Ride the wave. Modern sign-in and user authentication portal for QuizWave.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

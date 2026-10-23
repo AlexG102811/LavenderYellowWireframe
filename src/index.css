@@ -1,0 +1,348 @@
+/* ===== QuizWave — Sign In ===== */
+:root {
+  --lavender: #b190e8;
+  --lavender-dark: #7c5cc4;
+  --yellow: #f7d54e;
+  --bg: #f4f1fb;
+  --card: #ffffff;
+  --text: #2b2540;
+  --muted: #7a7390;
+  --error: #d64550;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, var(--bg) 0%, #e6e0f7 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 40px rgba(124, 92, 196, 0.18);
+  padding: 40px 32px;
+  position: relative;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.brand-icon {
+  font-size: 2.2rem;
+  display: inline-block;
+}
+
+.brand h1 {
+  font-size: 1.7rem;
+  margin-top: 6px;
+  color: var(--lavender-dark);
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  border: 1px solid #e3dcf3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  background: #f5f2fd;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab.active {
+  background: var(--lavender);
+  color: #fff;
+}
+
+/* Form */
+.auth-form label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 14px 0 6px;
+  color: var(--text);
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="password"] {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e3dcf3;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: var(--text);
+  background: #ffffff;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--lavender);
+  box-shadow: 0 0 0 3px rgba(177, 144, 232, 0.25);
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 14px 0 4px;
+  font-size: 0.85rem;
+}
+
+.remember {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: var(--lavender-dark);
+}
+
+.forgot {
+  color: var(--lavender-dark);
+  text-decoration: none;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.error-msg {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #fdeef0;
+  color: var(--error);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.success-msg {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: #eefbf1;
+  color: #277943;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.btn-primary {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--lavender) 0%, var(--lavender-dark) 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(124, 92, 196, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1.5px solid #e3dcf3;
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--lavender-dark);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-secondary:hover {
+  background: #f8f6fc;
+}
+
+.guest-hint {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.guest-hint button {
+  background: none;
+  border: none;
+  color: var(--lavender-dark);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+}
+
+.guest-hint button:hover {
+  text-decoration: underline;
+}
+
+/* Modal Dialog (replaces window.alert safely in iframe) */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 37, 64, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 14px;
+  max-width: 360px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: popIn 0.2s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content h3 {
+  font-size: 1.15rem;
+  color: var(--lavender-dark);
+  margin-bottom: 8px;
+}
+
+.modal-content p {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.modal-content .modal-close {
+  padding: 9px 20px;
+  border-radius: 8px;
+  border: none;
+  background: var(--lavender-dark);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.modal-content .modal-close:hover {
+  opacity: 0.9;
+}
+
+/* Active session view */
+.session-view {
+  text-align: center;
+}
+
+.session-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1ecfc;
+  color: var(--lavender-dark);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.session-info {
+  background: #faf9fd;
+  border: 1px solid #ede8f7;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 16px 0;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.session-info div {
+  margin-bottom: 6px;
+}
+
+.session-info div:last-child {
+  margin-bottom: 0;
+}
+
+.session-info span.label {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.session-info span.value {
+  color: var(--text);
+  font-weight: 600;
+  margin-left: 6px;
+}
