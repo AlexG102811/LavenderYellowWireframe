@@ -21,10 +21,12 @@
     <div class="quiz-header">
       <h1 id="quiz-title">Quiz</h1>
       <div class="progress-info">
-        <span id="question-counter">Question 1 / 10</span>
+        <span id="question-counter">Question 1 / 20</span>
+        <span id="timer-text" class="timer-text">⏱ 20s</span>
         <span id="score-counter">Score: 0</span>
       </div>
       <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+      <div class="timer-track"><div id="timer-fill" class="timer-fill"></div></div>
     </div>
 
     <section id="quiz-card" class="quiz-card-play">
@@ -39,6 +41,7 @@
       <h2 id="results-title">Quiz Complete!</h2>
       <p id="results-score" class="results-score"></p>
       <p id="results-message" class="results-message"></p>
+      <p id="results-best" class="results-best" hidden></p>
       <div class="results-actions">
         <button id="retry-btn" class="btn-primary">Play Again</button>
         <a href="home.html" class="btn-secondary">Back to Home</a>
