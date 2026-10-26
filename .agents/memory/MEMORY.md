@@ -1,0 +1,1 @@
+- [Preview cache verification](preview-cache-verification.md) — if a Replit preview disagrees with the current app files, retest with a cache-busting query before diagnosing stale UI.
